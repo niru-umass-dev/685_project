@@ -4,7 +4,7 @@ import numpy as np
 import collections
 import logging
 from nltk.corpus import stopwords
-from sklearn.feature_extraction import stop_words
+from sklearn.feature_extraction import _stop_words as stop_words
 from spacy.lang.en.stop_words import STOP_WORDS as spacy_stopwords
 from gensim.models import KeyedVectors
 
@@ -51,7 +51,7 @@ class Vocab:
             len(self.config.predefined_word_index), self.config.embedding_size)
         # load the pretrained word embeddings
         w2v_model = KeyedVectors.load_word2vec_format(
-            self.config.word_embedding_text_file_path).wv
+            self.config.word_embedding_text_file_path)
 
         # fill the dictionary with special tokens first
         idx = 0

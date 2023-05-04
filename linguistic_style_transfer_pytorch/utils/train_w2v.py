@@ -8,7 +8,7 @@ def train_word2vec_model(text_file_path, model_file_path,embedding_size):
     # train model
     print("Loading input file and training mode ...")
     model = Word2Vec(sentences=LineSentence(text_file_path),
-                     min_count=1, size=embedding_size)
+                     min_count=1, vector_size=embedding_size)
     # summarize the loaded model
     print("Model Details: {}".format(model))
     # save model
